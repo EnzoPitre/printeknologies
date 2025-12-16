@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conseils du Pro - Printeknologies</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Police Inter & Playfair -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        orange: {
+                            500: '#f97316',
+                            600: '#ea580c',
+                        },
+                        slate: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                        },
+                        blue: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-slate-800 smooth-scroll">
+
+    <!-- TOP BAR -->
+    <div class="bg-slate-900 text-slate-300 text-xs py-2 px-4 hidden md:block">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex space-x-6">
+                <span class="flex items-center gap-2 hover:text-white transition cursor-pointer">
+                    <i data-lucide="phone" width="14" height="14"></i> 05 57 99 01 78
+                </span>
+                <span class="flex items-center gap-2 hover:text-white transition cursor-pointer">
+                    <i data-lucide="mail" width="14" height="14"></i> contact@printeknologies.com
+                </span>
+            </div>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:text-white transition">Mentions légales</a>
+                <a href="#" class="hover:text-white transition">CGV</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-4">
+                    <button class="md:hidden p-2" onclick="toggleMenu()">
+                        <i data-lucide="menu" class="text-slate-800"></i>
+                    </button>
+                    <a href="index.html" class="no-underline">
+                        <img src="assets/logo-printeknologies.png" alt="Printeknologies Logo" class="h-10 w-auto">
+                    </a>
+                </div>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex space-x-8 font-medium text-sm text-slate-600">
+                    <a href="index.html" class="hover:text-orange-500 transition">Accueil</a>
+                    
+                    <!-- Dropdown Etiquettes -->
+                    <div class="relative group">
+                        <button class="hover:text-orange-500 transition flex items-center gap-1">
+                            Étiquettes <i data-lucide="chevron-down" width="14"></i>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+                            <a href="etiquettes-vins.html" class="block px-4 py-3 hover:bg-gray-50 text-slate-700 hover:text-orange-500 transition border-b border-gray-50">
+                                <span class="font-semibold block">Vins & Spiritueux</span>
+                                <span class="text-xs text-gray-400">Prestige & Tradition</span>
+                            </a>
+                            <a href="etiquettes-packaging.html" class="block px-4 py-3 hover:bg-gray-50 text-slate-700 hover:text-orange-500 transition border-b border-gray-50">
+                                <span class="font-semibold block">Packaging & Produit</span>
+                                <span class="text-xs text-gray-400">Marketing & Merchandising</span>
+                            </a>
+                            <a href="etiquettes-pharma.html" class="block px-4 py-3 hover:bg-gray-50 text-slate-700 hover:text-orange-500 transition border-b border-gray-50">
+                                <span class="font-semibold block">Pharma & Médical</span>
+                                <span class="text-xs text-gray-400">Normes & Sécurité</span>
+                            </a>
+                            <a href="etiquettes-technique.html" class="block px-4 py-3 hover:bg-gray-50 text-slate-700 hover:text-orange-500 transition border-b border-gray-50">
+                                <span class="font-semibold block">Technique & Industriel</span>
+                                <span class="text-xs text-gray-400">Résistance Extrême</span>
+                            </a>
+                            <a href="etiquettes-securite.html" class="block px-4 py-3 hover:bg-gray-50 text-slate-700 hover:text-orange-500 transition border-b border-gray-50">
+                                <span class="font-semibold block">Sécurité & Antivol</span>
+                                <span class="text-xs text-gray-400">VOID, RFID, Hologramme</span>
+                            </a>
+                            <a href="etiquettes-ecologiques.html" class="block px-4 py-3 hover:bg-gray-50 text-slate-700 hover:text-orange-500 transition">
+                                <span class="font-semibold block">Écologiques</span>
+                                <span class="text-xs text-gray-400">Biodégradable & Durable</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="materiel-consommables.html" class="hover:text-orange-500 transition">Matériel</a>
+                    <a href="nos-marques.html" class="hover:text-orange-500 transition">Nos Marques</a>
+                    <a href="conseils-pro.html" class="text-orange-500 font-bold">Conseils du Pro</a>
+                </nav>
+
+                <!-- Actions -->
+                <div class="flex items-center space-x-4">
+                    <div class="hidden md:flex relative group">
+                        <input 
+                            type="text" 
+                            placeholder="Rechercher..." 
+                            class="bg-gray-100 rounded-full py-2 px-4 pl-10 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 w-48 transition-all duration-300 focus:w-64"
+                        />
+                        <i data-lucide="search" class="absolute left-3 top-2.5 text-gray-400 w-4 h-4"></i>
+                    </div>
+                    <a href="#" class="text-slate-600 hover:text-orange-500 transition">
+                        <i data-lucide="user" width="24" height="24"></i>
+                    </a>
+                    <a href="#" class="relative text-slate-600 hover:text-orange-500 transition">
+                        <i data-lucide="shopping-cart" width="24" height="24"></i>
+                        <span class="absolute -top-1 -right-1 bg-orange-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">0</span>
+                    </a>
+                    <a href="devis.html" class="hidden lg:inline-flex items-center bg-orange-500 hover:bg-orange-600 text-white px-5 py-2.5 rounded-md font-semibold text-sm transition shadow-lg shadow-orange-500/30 transform hover:-translate-y-0.5">
+                        Demander un devis
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t p-4 space-y-4 shadow-lg absolute w-full left-0 z-40">
+            <a href="index.html" class="block text-slate-700 font-medium py-2">Accueil</a>
+            <div class="py-2">
+                <span class="block text-slate-700 font-medium mb-2 px-3">Étiquettes</span>
+                <div class="pl-6 space-y-2 border-l-2 border-gray-100 ml-3">
+                    <a href="etiquettes-vins.html" class="block text-sm text-gray-600">Vins & Spiritueux</a>
+                    <a href="etiquettes-packaging.html" class="block text-sm text-gray-600">Packaging</a>
+                    <a href="etiquettes-pharma.html" class="block text-sm text-gray-600">Pharma</a>
+                    <a href="etiquettes-technique.html" class="block text-sm text-gray-600">Industrie</a>
+                    <a href="etiquettes-securite.html" class="block text-sm text-gray-600">Sécurité</a>
+                    <a href="etiquettes-ecologiques.html" class="block text-sm text-gray-600">Écologique</a>
+                </div>
+            </div>
+            <a href="materiel-consommables.html" class="block text-slate-700 font-medium py-2 px-3">Matériel</a>
+            <a href="nos-marques.html" class="block text-slate-700 font-medium py-2 px-3">Marques</a>
+            <a href="conseils-pro.html" class="block text-orange-600 font-bold py-2 bg-orange-50 px-3 rounded">Conseils</a>
+            <a href="devis.html" class="block text-slate-700 font-medium py-2">Contact</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <div class="relative bg-slate-900 text-white py-24 lg:py-32 overflow-hidden">
+        <!-- Background Image Overlay -->
+        <div class="absolute inset-0 opacity-40">
+           <img 
+            src="https://images.unsplash.com/photo-1553484771-371a605b060b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
+            alt="Expertise et Conseil" 
+            class="w-full h-full object-cover"
+           />
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent"></div>
+
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <div class="max-w-3xl mx-auto animate-fade-in-up">
+                <span class="inline-block py-1 px-3 rounded-full bg-blue-500/30 text-blue-200 text-xs font-bold uppercase tracking-wider mb-6 border border-blue-500/30">
+                    Centre de Ressources
+                </span>
+                <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
+                    Les Conseils du Pro
+                </h1>
+                <p class="text-xl text-slate-200 mb-10 leading-relaxed">
+                    Découvrez nos guides d'experts, nos comparatifs techniques et toutes les astuces pour optimiser votre chaîne d'étiquetage et réduire vos coûts.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#articles" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-bold text-center transition transform hover:-translate-y-1 shadow-lg shadow-orange-500/30 flex items-center justify-center gap-2">
+                        Lire les derniers articles <i data-lucide="book-open" width="18"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BREADCRUMBS -->
+    <div class="bg-white border-b border-gray-100">
+        <div class="container mx-auto px-4 py-3 text-xs text-slate-500 flex items-center">
+            <a href="index.html" class="hover:text-orange-500">Accueil</a> 
+            <i data-lucide="chevron-right" width="12" class="mx-1"></i>
+            <span class="text-slate-800 font-medium">Conseils du Pro</span>
+        </div>
+    </div>
+
+    <!-- CATEGORIES FILTER -->
+    <section class="py-8 bg-white border-b border-gray-100 sticky top-20 z-40 shadow-sm">
+        <div class="container mx-auto px-4 overflow-x-auto">
+            <div class="flex space-x-2 md:justify-center min-w-max">
+                <button class="px-6 py-2 rounded-full bg-slate-900 text-white font-medium text-sm hover:bg-slate-800 transition">Tout voir</button>
+                <button class="px-6 py-2 rounded-full bg-gray-100 text-slate-600 font-medium text-sm hover:bg-orange-100 hover:text-orange-600 transition border border-gray-200">Matériel Impression</button>
+                <button class="px-6 py-2 rounded-full bg-gray-100 text-slate-600 font-medium text-sm hover:bg-blue-100 hover:text-blue-600 transition border border-gray-200">Impression Étiquettes</button>
+                <button class="px-6 py-2 rounded-full bg-gray-100 text-slate-600 font-medium text-sm hover:bg-green-100 hover:text-green-600 transition border border-gray-200">Fabrication</button>
+                <button class="px-6 py-2 rounded-full bg-gray-100 text-slate-600 font-medium text-sm hover:bg-purple-100 hover:text-purple-600 transition border border-gray-200">Consommables</button>
+                <button class="px-6 py-2 rounded-full bg-gray-100 text-slate-600 font-medium text-sm hover:bg-red-100 hover:text-red-600 transition border border-gray-200">Accessoires</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ARTICLES GRID -->
+    <section id="articles" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Article 1: Nettoyage Tête -->
+                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden group flex flex-col h-full border border-gray-100">
+                    <div class="relative h-56 overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                            alt="Tête d'impression" 
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                        />
+                        <div class="absolute top-4 left-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                            Accessoires
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors font-serif leading-tight">
+                            Quand nettoyer la tête d’impression de mon imprimante transfert thermique ?
+                        </h3>
+                        <p class="text-sm text-slate-500 mb-6 flex-grow leading-relaxed line-clamp-3">
+                            Une tête d'impression encrassée réduit la qualité et raccourcit la durée de vie de votre machine. Découvrez les signes qui ne trompent pas et la fréquence idéale d'entretien.
+                        </p>
+                        <a href="#" class="inline-flex items-center text-orange-600 font-bold hover:text-orange-800 text-sm group-hover:translate-x-1 transition-transform">
+                            Lire l'article <i data-lucide="arrow-right" width="16" class="ml-2"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 2: Logiciel -->
+                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden group flex flex-col h-full border border-gray-100">
+                    <div class="relative h-56 overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1555421689-491a97ff2040?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                            alt="Logiciel Etiquette" 
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                        />
+                        <div class="absolute top-4 left-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                            Accessoires
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors font-serif leading-tight">
+                            Bien choisir son logiciel de création & d’édition d’étiquettes codes barres
+                        </h3>
+                        <p class="text-sm text-slate-500 mb-6 flex-grow leading-relaxed line-clamp-3">
+                            BarTender, NiceLabel, CodeSoft... Comparatif des meilleures solutions logicielles pour créer vos étiquettes en toute simplicité et les connecter à vos bases de données.
+                        </p>
+                        <a href="#" class="inline-flex items-center text-orange-600 font-bold hover:text-orange-800 text-sm group-hover:translate-x-1 transition-transform">
+                            Lire l'article <i data-lucide="arrow-right" width="16" class="ml-2"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 3: Transfert Couleur -->
+                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden group flex flex-col h-full border border-gray-100">
+                    <div class="relative h-56 overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1520690214124-2405c5217036?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                            alt="Couleur" 
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                        />
+                        <div class="absolute top-4 left-4 bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                            Consommables
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors font-serif leading-tight">
+                            Le transfert thermique en couleur !
+                        </h3>
+                        <p class="text-sm text-slate-500 mb-6 flex-grow leading-relaxed line-clamp-3">
+                            On pense souvent au transfert thermique pour le noir et blanc. Découvrez comment imprimer des logos et pictogrammes couleur durables sans changer de technologie.
+                        </p>
+                        <a href="#" class="inline-flex items-center text-orange-600 font-bold hover:text-orange-800 text-sm group-hover:translate-x-1 transition-transform">
+                            Lire l'article <i data-lucide="arrow-right" width="16" class="ml-2"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 4: Matière / Ruban -->
+                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden group flex flex-col h-full border border-gray-100">
+                    <div class="relative h-56 overflow-hidden">
+                        <img 
+                            src="assets/javier-allegue-barros-C7B-ExXpOIE-unsplash.jpg" 
+                            alt="Ruban Transfert" 
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                        />
+                        <div class="absolute top-4 left-4 bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                            Consommables
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors font-serif leading-tight">
+                            Quelle est la meilleure association matière/ruban ?
+                        </h3>
+                        <p class="text-sm text-slate-500 mb-6 flex-grow leading-relaxed line-clamp-3">
+                            Cire, Cire-Résine, Résine... Papier, Synthétique... Ne ratez plus vos impressions. Le guide complet pour marier le bon ruban à la bonne étiquette.
+                        </p>
+                        <a href="#" class="inline-flex items-center text-orange-600 font-bold hover:text-orange-800 text-sm group-hover:translate-x-1 transition-transform">
+                            Lire l'article <i data-lucide="arrow-right" width="16" class="ml-2"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 5: Choix Adhésif -->
+                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden group flex flex-col h-full border border-gray-100">
+                    <div class="relative h-56 overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                            alt="Adhésif" 
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                        />
+                        <div class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                            Fabrication
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors font-serif leading-tight">
+                            Comment bien choisir son adhésif ?
+                        </h3>
+                        <p class="text-sm text-slate-500 mb-6 flex-grow leading-relaxed line-clamp-3">
+                            Permanent, enlevable, renforcé, congélation... L'adhésif est aussi important que le papier. Apprenez à le choisir en fonction de votre support (verre, carton, métal).
+                        </p>
+                        <a href="#" class="inline-flex items-center text-orange-600 font-bold hover:text-orange-800 text-sm group-hover:translate-x-1 transition-transform">
+                            Lire l'article <i data-lucide="arrow-right" width="16" class="ml-2"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 6: Sécurité -->
+                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden group flex flex-col h-full border border-gray-100">
+                    <div class="relative h-56 overflow-hidden">
+                        <img 
+                            src="assets/sophia-kunkel-cqH4_fBvVPg-unsplash.jpg" 
+                            alt="Sécurité" 
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                        />
+                        <div class="absolute top-4 left-4 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                            Impression
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors font-serif leading-tight">
+                            Quel type d’étiquette choisir pour sécuriser et protéger efficacement ?
+                        </h3>
+                        <p class="text-sm text-slate-500 mb-6 flex-grow leading-relaxed line-clamp-3">
+                            VOID, destructible, hologramme... Tour d'horizon des solutions pour lutter contre le vol, la fraude et garantir l'intégrité de vos produits.
+                        </p>
+                        <a href="#" class="inline-flex items-center text-orange-600 font-bold hover:text-orange-800 text-sm group-hover:translate-x-1 transition-transform">
+                            Lire l'article <i data-lucide="arrow-right" width="16" class="ml-2"></i>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER CTA -->
+    <section class="bg-slate-800 py-16 text-center">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto">
+                <i data-lucide="mail" class="text-orange-500 w-12 h-12 mx-auto mb-4"></i>
+                <h2 class="text-3xl font-serif font-bold text-white mb-4">Ne manquez aucun conseil !</h2>
+                <p class="text-slate-300 mb-8">
+                    Inscrivez-vous à notre newsletter pour recevoir nos derniers guides techniques et astuces pro directement dans votre boîte mail.
+                </p>
+                <form class="flex flex-col sm:flex-row gap-3">
+                    <input type="email" placeholder="Votre email professionnel" class="bg-slate-700 border border-slate-600 text-white px-6 py-4 rounded-lg flex-grow focus:outline-none focus:border-orange-500 transition w-full" />
+                    <button class="bg-orange-500 text-white px-8 py-4 rounded-lg font-bold hover:bg-orange-600 transition shadow-lg w-full sm:w-auto">
+                        S'inscrire
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-500 py-16 text-sm border-t border-slate-900">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <div>
+                <h4 class="text-white font-bold mb-6 uppercase tracking-wider">Printeknologies</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="hover:text-orange-500 transition">Qui Sommes Nous</a></li>
+                    <li><a href="conseils-pro.html" class="hover:text-orange-500 transition">Nos Guides</a></li>
+                    <li><a href="#" class="hover:text-orange-500 transition">Mentions légales</a></li>
+                    <li><a href="#" class="hover:text-orange-500 transition">CGV</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-6 uppercase tracking-wider">Service Client</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="hover:text-orange-500 transition">Contact / Devis</a></li>
+                    <li><a href="#" class="hover:text-orange-500 transition">Garanties</a></li>
+                    <li><a href="#" class="hover:text-orange-500 transition">SAV</a></li>
+                    <li><a href="#" class="hover:text-orange-500 transition">Livraison</a></li>
+                </ul>
+            </div>
+            <div class="md:col-span-2">
+                <h4 class="text-white font-bold mb-6 uppercase tracking-wider">Restons Connectés</h4>
+                <p class="mb-4 text-slate-400">Suivez-nous sur les réseaux sociaux pour plus d'actualités.</p>
+                <div class="flex space-x-4 mt-6">
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-orange-500 hover:text-white transition"><i data-lucide="linkedin" width="18"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-orange-500 hover:text-white transition"><i data-lucide="facebook" width="18"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-orange-500 hover:text-white transition"><i data-lucide="twitter" width="18"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 text-center pt-8 border-t border-slate-900">
+            <p>© Printeknologies 2025 - Tous droits réservés - <span class="text-slate-600">Conçu pour l'excellence.</span></p>
+        </div>
+    </footer>
+
+    <!-- Script pour les icônes Lucide -->
+    <script>
+        lucide.createIcons();
+        
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

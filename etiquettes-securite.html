@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Étiquettes Sécurité & Antivol - Printeknologies</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Police Inter & Playfair -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        orange: {
+                            500: '#f97316',
+                            600: '#ea580c',
+                        },
+                        slate: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                        },
+                        red: { // Security alert color
+                            50: '#fef2f2',
+                            100: '#fee2e2',
+                            500: '#ef4444',
+                            600: '#dc2626',
+                            700: '#b91c1c',
+                            800: '#991b1b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-slate-800 smooth-scroll">
+
+    <!-- TOP BAR -->
+    <div class="bg-slate-900 text-slate-300 text-xs py-2 px-4 hidden md:block">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex space-x-6">
+                <span class="flex items-center gap-2 hover:text-white transition cursor-pointer">
+                    <i data-lucide="phone" width="14" height="14"></i> 05 57 99 01 78
+                </span>
+                <span class="flex items-center gap-2 hover:text-white transition cursor-pointer">
+                    <i data-lucide="mail" width="14" height="14"></i> contact@printeknologies.com
+                </span>
+            </div>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:text-white transition">Mentions légales</a>
+                <a href="#" class="hover:text-white transition">CGV</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-4">
+                    <button class="md:hidden p-2" onclick="toggleMenu()">
+                        <i data-lucide="menu" class="text-slate-800"></i>
+                    </button>
+                    <a href="index.html" class="no-underline">
+                        <img src="assets/logo-printeknologies.png" alt="Printeknologies Logo" class="h-10 w-auto">
+                    </a>
+                </div>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex space-x-8 font-medium text-sm text-slate-600">
+                    <a href="index.html" class="hover:text-orange-500 transition">Accueil</a>
+                    <a href="index.html#solutions" class="text-orange-500 font-bold">Étiquettes</a>
+                    <a href="materiel-consommables.html" class="hover:text-orange-500 transition">Matériel</a>
+                    <a href="nos-marques.html" class="hover:text-orange-500 transition">Nos Marques</a>
+                    <a href="conseils-pro.html" class="hover:text-orange-500 transition">Conseils</a>
+                </nav>
+
+                <!-- Actions -->
+                <div class="flex items-center space-x-4">
+                    <div class="hidden md:flex relative group">
+                        <input 
+                            type="text" 
+                            placeholder="Rechercher..." 
+                            class="bg-gray-100 rounded-full py-2 px-4 pl-10 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 w-48 transition-all duration-300 focus:w-64"
+                        />
+                        <i data-lucide="search" class="absolute left-3 top-2.5 text-gray-400 w-4 h-4"></i>
+                    </div>
+                    <a href="#" class="text-slate-600 hover:text-orange-500 transition">
+                        <i data-lucide="user" width="24" height="24"></i>
+                    </a>
+                    <a href="#" class="relative text-slate-600 hover:text-orange-500 transition">
+                        <i data-lucide="shopping-cart" width="24" height="24"></i>
+                        <span class="absolute -top-1 -right-1 bg-orange-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">0</span>
+                    </a>
+                    <a href="devis.html" class="hidden lg:inline-flex items-center bg-orange-500 hover:bg-orange-600 text-white px-5 py-2.5 rounded-md font-semibold text-sm transition shadow-lg shadow-orange-500/30 transform hover:-translate-y-0.5">
+                        Demander un devis
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t p-4 space-y-4 shadow-lg absolute w-full left-0 z-40">
+            <a href="index.html" class="block text-slate-700 font-medium py-2">Accueil</a>
+            <a href="index.html#solutions" class="block text-orange-600 font-bold py-2 bg-orange-50 px-3 rounded">Étiquettes</a>
+            <a href="materiel-consommables.html" class="block text-slate-700 font-medium py-2">Matériel & Consommables</a>
+            <a href="nos-marques.html" class="block text-slate-700 font-medium py-2">Marques</a>
+            <a href="conseils-pro.html" class="block text-slate-700 font-medium py-2">Conseils</a>
+            <a href="devis.html" class="block text-slate-700 font-medium py-2">Contact</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <div class="relative bg-slate-900 text-white py-24 lg:py-36 overflow-hidden">
+        <!-- Background Image Overlay -->
+        <div class="absolute inset-0 opacity-40">
+           <img 
+            src="https://images.unsplash.com/photo-1614064641938-3e8211d936e6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
+            alt="Sécurité et Cadenas" 
+            class="w-full h-full object-cover"
+           />
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-r from-red-900/90 via-slate-900/80 to-transparent"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl animate-fade-in-up">
+                <span class="inline-block py-1 px-3 rounded-full bg-red-500/20 text-red-300 text-xs font-bold uppercase tracking-wider mb-6 border border-red-500/30">
+                    Protection & Antivol
+                </span>
+                <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
+                    Étiquettes de Sécurité
+                </h1>
+                <p class="text-xl text-slate-200 mb-10 leading-relaxed max-w-2xl">
+                    Protégez vos produits contre le vol et la contrefaçon. Nos solutions VOID, RFID et holographiques garantissent l'inviolabilité et l'authenticité de vos marchandises.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#produits" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-bold text-center transition transform hover:-translate-y-1 shadow-lg shadow-orange-500/30 flex items-center justify-center gap-2">
+                        Voir les solutions <i data-lucide="shield-check" width="18"></i>
+                    </a>
+                    <a href="mailto:contact@printeknologies.com" class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-lg font-bold text-center transition flex items-center justify-center">
+                        Conseil expert
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BREADCRUMBS -->
+    <div class="bg-white border-b border-gray-100">
+        <div class="container mx-auto px-4 py-3 text-xs text-slate-500 flex items-center">
+            <a href="index.html" class="hover:text-orange-500">Accueil</a> 
+            <i data-lucide="chevron-right" width="12" class="mx-1"></i>
+            <a href="index.html#solutions" class="hover:text-orange-500">Produits</a> 
+            <i data-lucide="chevron-right" width="12" class="mx-1"></i>
+            <span class="text-slate-800 font-medium">Sécurité & Antivol</span>
+        </div>
+    </div>
+
+    <!-- CATALOGUE SECTION -->
+    <section id="produits" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-4xl font-bold text-slate-900 mb-3">Gamme Sécurité</h2>
+                    <p class="text-slate-600 text-lg">Technologies avancées pour la protection des biens</p>
+                </div>
+                <!-- Sorting -->
+                <div class="mt-4 md:mt-0 relative min-w-[200px]">
+                    <select class="appearance-none bg-white border border-gray-300 text-slate-700 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-3 pr-8 shadow-sm cursor-pointer">
+                        <option>Tri par défaut</option>
+                        <option>Popularité</option>
+                        <option>Niveau de sécurité</option>
+                    </select>
+                    <i data-lucide="chevron-down" class="absolute right-3 top-3.5 text-gray-500 w-4 h-4 pointer-events-none"></i>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Produit 1: Etanchéité -->
+                <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full transform hover:-translate-y-1">
+                    <div class="relative h-64 overflow-hidden bg-gray-100">
+                        <img 
+                            src="https://images.unsplash.com/photo-1581093588401-fbb62a02f120?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                            alt="Contrôle d'étanchéité" 
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                        />
+                        <div class="absolute top-4 right-4 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                            Conformité
+                        </div>
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="bg-white text-slate-900 px-6 py-2 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition duration-300 shadow-lg">Aperçu</button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-red-600 transition-colors font-serif">
+                            Contrôle d'Étanchéité
+                        </h3>
+                        <p class="text-sm text-slate-500 mb-6 flex-grow leading-relaxed">
+                            Pour attester de la conformité de vos équipements frigorifiques. Obligatoire pour le suivi réglementaire.
+                        </p>
+                        <button class="w-full border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white font-bold py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2">
+                            Voir le produit
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produit 2: Tactile / Danger -->
+                <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full transform hover:-translate-y-1">
+                    <div class="relative h-64 overflow-hidden bg-gray-100">
+                        <img 
+                            src="assets/triangle tactile mockup.jpg" 
+                            alt="Triangle Tactile" 
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                        />
+                        <div class="absolute top-4 right-4 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                            Norme ISO
+                        </div>
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="bg-white text-slate-900 px-6 py-2 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition duration-300 shadow-lg">Aperçu</button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-red-600 transition-colors font-serif">
+                            Danger Triangle Tactile
+                        </h3>
+                        <p class="text-sm text-slate-500 mb-6 flex-grow leading-relaxed">
+                            Conforme norme NF EN ISO 11683. Vernis sérigraphique UV gonflant pour la sécurité des non-voyants.
+                        </p>
+                        <button class="w-full border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white font-bold py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2">
+                            Voir le produit
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produit 3: Stop Ouverture -->
+                <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full transform hover:-translate-y-1">
+                    <div class="relative h-64 overflow-hidden bg-gray-100">
+                        <img 
+                            src="assets/ron-mcclenny-EpHH_NKwKkE-unsplash (1).jpg" 
+                            alt="Stop Ouverture" 
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                        />
+                        <div class="absolute top-4 right-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                            Inviolable
+                        </div>
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="bg-white text-slate-900 px-6 py-2 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition duration-300 shadow-lg">Aperçu</button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-red-600 transition-colors font-serif">
+                            Étiquette STOP OUVERTURE
+                        </h3>
+                        <p class="text-sm text-slate-500 mb-6 flex-grow leading-relaxed">
+                            Révèle un message "VOID OPEN" sans laisser de trace de colle sur le produit. Idéal packaging luxe.
+                        </p>
+                        <button class="w-full border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white font-bold py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2">
+                            Voir le produit
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produit 4: VOID Holographique -->
+                <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full transform hover:-translate-y-1">
+                    <div class="relative h-64 overflow-hidden bg-gray-100">
+                        <img 
+                            src="https://images.unsplash.com/photo-1618331835717-801e976710b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                            alt="VOID Holographique" 
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                        />
+                        <div class="absolute top-4 right-4 bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                            Hologramme
+                        </div>
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="bg-white text-slate-900 px-6 py-2 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition duration-300 shadow-lg">Aperçu</button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-red-600 transition-colors font-serif">
+                            VOID Holographique
+                        </h3>
+                        <p class="text-sm text-slate-500 mb-6 flex-grow leading-relaxed">
+                            Double sécurité : effet visuel holographique (authentification) + témoin d'effraction VOID au décollement.
+                        </p>
+                        <button class="w-full border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white font-bold py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2">
+                            Voir le produit
+                        </button>
+                    </div>
+                </div>
+
+                 <!-- Produit 5: Destructible -->
+                 <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full transform hover:-translate-y-1">
+                    <div class="relative h-64 overflow-hidden bg-gray-100">
+                        <img 
+                            src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                            alt="Étiquette destructible" 
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                        />
+                        <div class="absolute top-4 right-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                            Anti-Transfert
+                        </div>
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="bg-white text-slate-900 px-6 py-2 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition duration-300 shadow-lg">Aperçu</button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-red-600 transition-colors font-serif">
+                            Étiquette Destructible
+                        </h3>
+                        <p class="text-sm text-slate-500 mb-6 flex-grow leading-relaxed">
+                            "Coquille d'oeuf". Se désagrège en mille morceaux si on tente de l'arracher. Impossible à recoller.
+                        </p>
+                        <button class="w-full border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white font-bold py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2">
+                            Voir le produit
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produit 6: Hologramme Perso -->
+                <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full transform hover:-translate-y-1">
+                    <div class="relative h-64 overflow-hidden bg-gray-100">
+                        <img 
+                            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                            alt="Hologramme Personnalisé" 
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                        />
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="bg-white text-slate-900 px-6 py-2 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition duration-300 shadow-lg">Aperçu</button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-red-600 transition-colors font-serif">
+                            Hologramme Personnalisé
+                        </h3>
+                        <p class="text-sm text-slate-500 mb-6 flex-grow leading-relaxed">
+                            Authentification visuelle unique pour lutter contre la contrefaçon. Personnalisable avec votre logo.
+                        </p>
+                        <button class="w-full border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white font-bold py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2">
+                            Voir le produit
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produit 7: SGH Danger -->
+                <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full transform hover:-translate-y-1">
+                    <div class="relative h-64 overflow-hidden bg-gray-100">
+                        <img 
+                            src="assets/mikael-seegen-jX6WXNkvsPs-unsplash.jpg" 
+                            alt="SGH Danger" 
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                        />
+                        <div class="absolute top-4 right-4 bg-yellow-500 text-slate-900 text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                            Réglementaire
+                        </div>
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="bg-white text-slate-900 px-6 py-2 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition duration-300 shadow-lg">Aperçu</button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-red-600 transition-colors font-serif">
+                            Pictogrammes Danger SGH
+                        </h3>
+                        <p class="text-sm text-slate-500 mb-6 flex-grow leading-relaxed">
+                            Étiquettes obligatoires pour identifier la nature des dangers des produits chimiques (inflammable, toxique...).
+                        </p>
+                        <button class="w-full border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white font-bold py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2">
+                            Voir le produit
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produit 8: RFID Antivol -->
+                <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full transform hover:-translate-y-1">
+                    <div class="relative h-64 overflow-hidden bg-gray-100">
+                        <img 
+                            src="assets/zaptec-IhG7G2LpUEo-unsplash.jpg" 
+                            alt="RFID Antivol" 
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                        />
+                        <div class="absolute top-4 right-4 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                            Technologie
+                        </div>
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="bg-white text-slate-900 px-6 py-2 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition duration-300 shadow-lg">Aperçu</button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-red-600 transition-colors font-serif">
+                            Étiquette Antivol RFID
+                        </h3>
+                        <p class="text-sm text-slate-500 mb-6 flex-grow leading-relaxed">
+                            Solutions intelligentes pour la logistique et les magasins. Détection antivol et gestion de stock simultanées.
+                        </p>
+                        <button class="w-full border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white font-bold py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2">
+                            Voir le produit
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA STRIP -->
+    <section class="bg-red-700 py-16">
+        <div class="container mx-auto px-4">
+            <div class="relative overflow-hidden bg-red-800 rounded-3xl p-10 md:p-16 shadow-2xl border border-red-600">
+                <div class="absolute -top-32 -left-32 w-80 h-80 bg-red-600 rounded-full opacity-30"></div>
+                <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-orange-600 rounded-full opacity-30"></div>
+
+                <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+                    <div class="text-white text-center lg:text-left">
+                        <h3 class="text-3xl md:text-4xl font-bold mb-4 font-serif">Stop à la fraude !</h3>
+                        <p class="text-red-100 text-lg max-w-xl mx-auto lg:mx-0">
+                            Purple Void 3M, destructible, Secure & Traced... Nous avons la solution pour garantir l'intégrité de vos produits. Demandez vos échantillons gratuits.
+                        </p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
+                        <a href="mailto:contact@printeknologies.com" class="bg-white text-red-800 hover:bg-gray-100 px-8 py-4 rounded-xl font-bold text-lg shadow-xl transition transform hover:scale-105 flex items-center justify-center gap-2">
+                            <i data-lucide="file-check" width="20"></i> Demander un devis
+                        </a>
+                        <a href="tel:0557990178" class="bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-4 rounded-xl font-bold text-lg transition flex items-center justify-center gap-2">
+                            <i data-lucide="phone" width="20"></i> Appeler
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO & CONTENT SECTION -->
+    <section class="py-24 bg-white overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                
+                <div class="lg:w-1/2 order-2 lg:order-1">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-red-50 text-red-700 rounded-full mb-6 text-sm font-semibold">
+                        <i data-lucide="lock" width="16" class="text-red-600"></i> Sécurité Maximale
+                    </div>
+                    <h2 class="text-4xl lg:text-5xl font-serif font-bold text-slate-900 mb-8 leading-tight">
+                        Lutter efficacement contre l'effraction
+                    </h2>
+                    <div class="prose prose-lg text-slate-600 space-y-6">
+                        <p>
+                            Véritables témoins d’effraction, nos étiquettes de sécurité sont élaborées grâce aux techniques d’impression les plus innovantes. Elles sont indispensables pour garantir l'inviolabilité de vos produits, que ce soit en usage interne ou à l'export.
+                        </p>
+                        <p>
+                            <strong>Solutions Multiples :</strong> Nous proposons des combinaisons infinies : VOID laissant un message sur le support, destructibles qui partent en morceaux (intransférables), ou encore hologrammes personnalisés pour une authenticité unique.
+                        </p>
+                        
+                        <div class="mt-8 mb-6 bg-gray-50 p-6 rounded-xl border border-gray-100">
+                            <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+                                <i data-lucide="shield-alert" class="text-red-500"></i> Nos Technologies
+                            </h3>
+                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="text-green-500 w-4"></i> VOID (message au décollage)</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="text-green-500 w-4"></i> Ultra-Destructible (coquille d'oeuf)</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="text-green-500 w-4"></i> Hologramme Sécurité Optique</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="text-green-500 w-4"></i> Secure & Traced (Datamatrix)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-10">
+                        <a href="#contact" class="inline-flex items-center text-red-700 font-bold hover:text-red-800 text-lg group">
+                            Sécurisez vos produits maintenant
+                            <i data-lucide="arrow-right" class="ml-2 transform group-hover:translate-x-1 transition"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2 relative order-1 lg:order-2">
+                    <!-- Decorative Elements -->
+                    <div class="absolute -top-10 -right-10 w-64 h-64 bg-red-100 rounded-full mix-blend-multiply filter blur-3xl opacity-60"></div>
+                    <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-orange-100 rounded-full mix-blend-multiply filter blur-3xl opacity-60"></div>
+                    
+                    <div class="relative grid grid-cols-2 gap-4">
+                        <img 
+                            src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                            alt="Code Barre Sécurité" 
+                            class="rounded-2xl shadow-xl w-full object-cover h-64 transform translate-y-8"
+                        />
+                        <img 
+                            src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                            alt="Paiement Sécurisé" 
+                            class="rounded-2xl shadow-xl w-full object-cover h-64"
+                        />
+                        <div class="col-span-2 bg-slate-900 text-white p-6 rounded-2xl shadow-xl mt-4">
+                            <div class="flex items-center gap-4 mb-2">
+                                <div class="bg-red-600 p-2 rounded-lg"><i data-lucide="eye" class="w-6 h-6"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Traçabilité Totale</h4>
+                                    <p class="text-slate-400 text-sm">Suivi via QR Code et Datamatrix connectés à vos bases de données.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST SIGNALS -->
+    <section class="bg-slate-900 text-white py-20 border-t border-slate-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4 font-serif">La garantie Printeknologies</h2>
+                <div class="w-24 h-1 bg-red-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <!-- Feature 1 -->
+                <div class="group p-8 bg-slate-800 rounded-2xl hover:bg-slate-700 transition duration-300 border border-slate-700 hover:border-red-500/50">
+                    <div class="w-20 h-20 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white shadow-lg shadow-red-500/30 transform group-hover:scale-110 transition duration-300">
+                        <i data-lucide="user-check" width="36" height="36"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Conseil Expert</h3>
+                    <p class="text-slate-400 mb-6">Nous analysons vos risques pour vous proposer la solution antivol la plus adaptée.</p>
+                    <a href="#" class="inline-block text-red-400 text-sm font-bold uppercase tracking-wide hover:text-white transition group-hover:translate-x-1">
+                        En savoir plus &rarr;
+                    </a>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="group p-8 bg-slate-800 rounded-2xl hover:bg-slate-700 transition duration-300 border border-slate-700 hover:border-orange-500/50">
+                    <div class="w-20 h-20 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white shadow-lg shadow-orange-500/30 transform group-hover:scale-110 transition duration-300">
+                        <i data-lucide="settings" width="36" height="36"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Support Technique</h3>
+                    <p class="text-slate-400 mb-6">Assistance pour l'intégration de vos solutions RFID et systèmes d'impression.</p>
+                    <a href="#" class="inline-block text-orange-400 text-sm font-bold uppercase tracking-wide hover:text-white transition group-hover:translate-x-1">
+                        Contacter le SAV &rarr;
+                    </a>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="group p-8 bg-slate-800 rounded-2xl hover:bg-slate-700 transition duration-300 border border-slate-700 hover:border-green-500/50">
+                    <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white shadow-lg shadow-green-600/30 transform group-hover:scale-110 transition duration-300">
+                        <i data-lucide="thumbs-up" width="36" height="36"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Confidentialité</h3>
+                    <p class="text-slate-400 mb-6">Vos projets de sécurité sont traités avec la plus grande discrétion et professionnalisme.</p>
+                    <a href="#" class="inline-block text-green-400 text-sm font-bold uppercase tracking-wide hover:text-white transition group-hover:translate-x-1">
+                        Nos engagements &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-500 py-16 text-sm border-t border-slate-900">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <div>
+                <h4 class="text-white font-bold mb-6 uppercase tracking-wider">Printeknologies</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="hover:text-orange-500 transition">Qui Sommes Nous</a></li>
+                    <li><a href="#" class="hover:text-orange-500 transition">Nos Guides</a></li>
+                    <li><a href="#" class="hover:text-orange-500 transition">Mentions légales</a></li>
+                    <li><a href="#" class="hover:text-orange-500 transition">CGV</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-6 uppercase tracking-wider">Service Client</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="hover:text-orange-500 transition">Contact / Devis</a></li>
+                    <li><a href="#" class="hover:text-orange-500 transition">Garanties</a></li>
+                    <li><a href="#" class="hover:text-orange-500 transition">SAV</a></li>
+                    <li><a href="#" class="hover:text-orange-500 transition">Livraison</a></li>
+                </ul>
+            </div>
+            <div class="md:col-span-2">
+                <h4 class="text-white font-bold mb-6 uppercase tracking-wider">Newsletter</h4>
+                <p class="mb-4 text-slate-400">Recevez nos dernières actualités, conseils d'experts et offres exclusives.</p>
+                <form class="flex flex-col sm:flex-row gap-3">
+                    <input type="email" placeholder="Votre email professionnel" class="bg-slate-900 border border-slate-800 text-white px-5 py-3 rounded-lg flex-grow focus:outline-none focus:border-orange-500 transition" />
+                    <button class="bg-orange-500 text-white px-8 py-3 rounded-lg font-bold hover:bg-orange-600 transition shadow-lg shadow-orange-500/20">S'inscrire</button>
+                </form>
+                <div class="mt-6 flex space-x-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-orange-500 hover:text-white transition"><i data-lucide="linkedin" width="18"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-orange-500 hover:text-white transition"><i data-lucide="facebook" width="18"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-orange-500 hover:text-white transition"><i data-lucide="twitter" width="18"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 text-center pt-8 border-t border-slate-900">
+            <p>© Printeknologies 2025 - Tous droits réservés - <span class="text-slate-600">Conçu pour l'excellence.</span></p>
+        </div>
+    </footer>
+
+    <!-- Script pour les icônes Lucide -->
+    <script>
+        lucide.createIcons();
+        
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

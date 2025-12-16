@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Étiquettes Packaging & Produit - Printeknologies</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Police Inter & Playfair -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        orange: {
+                            500: '#f97316',
+                            600: '#ea580c',
+                        },
+                        slate: {
+                            900: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-slate-800 smooth-scroll">
+
+    <!-- TOP BAR -->
+    <div class="bg-slate-900 text-slate-300 text-xs py-2 px-4 hidden md:block">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex space-x-6">
+                <span class="flex items-center gap-2 hover:text-white transition cursor-pointer">
+                    <i data-lucide="phone" width="14" height="14"></i> 05 57 99 01 78
+                </span>
+                <span class="flex items-center gap-2 hover:text-white transition cursor-pointer">
+                    <i data-lucide="mail" width="14" height="14"></i> contact@printeknologies.com
+                </span>
+            </div>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:text-white transition">Mentions légales</a>
+                <a href="#" class="hover:text-white transition">CGV</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-4">
+                    <button class="md:hidden p-2" onclick="toggleMenu()">
+                        <i data-lucide="menu" class="text-slate-800"></i>
+                    </button>
+                    <a href="index.html" class="no-underline">
+                        <img src="assets/logo-printeknologies.png" alt="Printeknologies Logo" class="h-10 w-auto">
+                    </a>
+                </div>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex space-x-8 font-medium text-sm text-slate-600">
+                    <a href="index.html" class="hover:text-orange-500 transition">Accueil</a>
+                    <a href="index.html#solutions" class="text-orange-500 font-bold">Étiquettes</a>
+                    <a href="materiel-consommables.html" class="hover:text-orange-500 transition">Matériel</a>
+                    <a href="nos-marques.html" class="hover:text-orange-500 transition">Nos Marques</a>
+                    <a href="conseils-pro.html" class="hover:text-orange-500 transition">Conseils</a>
+                </nav>
+
+                <!-- Actions -->
+                <div class="flex items-center space-x-4">
+                    <div class="hidden md:flex relative group">
+                        <input 
+                            type="text" 
+                            placeholder="Rechercher..." 
+                            class="bg-gray-100 rounded-full py-2 px-4 pl-10 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 w-48 transition-all duration-300 focus:w-64"
+                        />
+                        <i data-lucide="search" class="absolute left-3 top-2.5 text-gray-400 w-4 h-4"></i>
+                    </div>
+                    <a href="#" class="text-slate-600 hover:text-orange-500 transition">
+                        <i data-lucide="user" width="24" height="24"></i>
+                    </a>
+                    <a href="#" class="relative text-slate-600 hover:text-orange-500 transition">
+                        <i data-lucide="shopping-cart" width="24" height="24"></i>
+                        <span class="absolute -top-1 -right-1 bg-orange-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">0</span>
+                    </a>
+                    <a href="devis.html" class="hidden lg:inline-flex items-center bg-orange-500 hover:bg-orange-600 text-white px-5 py-2.5 rounded-md font-semibold text-sm transition shadow-lg shadow-orange-500/30 transform hover:-translate-y-0.5">
+                        Demander un devis
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t p-4 space-y-4 shadow-lg absolute w-full left-0 z-40">
+            <a href="index.html" class="block text-slate-700 font-medium py-2">Accueil</a>
+            <a href="index.html#solutions" class="block text-orange-600 font-bold py-2 bg-orange-50 px-3 rounded">Étiquettes</a>
+            <a href="materiel-consommables.html" class="block text-slate-700 font-medium py-2">Matériel & Consommables</a>
+            <a href="nos-marques.html" class="block text-slate-700 font-medium py-2">Marques</a>
+            <a href="conseils-pro.html" class="block text-slate-700 font-medium py-2">Conseils</a>
+            <a href="devis.html" class="block text-slate-700 font-medium py-2">Contact</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <div class="relative bg-slate-900 text-white py-24 lg:py-36 overflow-hidden">
+        <!-- Background Image Overlay -->
+        <div class="absolute inset-0 opacity-30">
+           <img 
+            src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
+            alt="Packaging Cosmetics Background" 
+            class="w-full h-full object-cover"
+           />
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-transparent"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl animate-fade-in-up">
+                <span class="inline-block py-1 px-3 rounded-full bg-indigo-500/30 text-indigo-300 text-xs font-bold uppercase tracking-wider mb-6 border border-indigo-500/30">
+                    Merchandising & Marketing
+                </span>
+                <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
+                    Étiquettes Packaging & Produit
+                </h1>
+                <p class="text-xl text-slate-200 mb-10 leading-relaxed max-w-2xl">
+                    Découvrez nos étiquettes spéciales packaging pour sublimer vos produits. Dans un monde où le marketing est roi, l’étiquette est indispensable pour vous démarquer.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#produits" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-bold text-center transition transform hover:-translate-y-1 shadow-lg shadow-orange-500/30 flex items-center justify-center gap-2">
+                        Découvrir la gamme <i data-lucide="arrow-right" width="18"></i>
+                    </a>
+                    <a href="mailto:contact@printeknologies.com" class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-lg font-bold text-center transition flex items-center justify-center">
+                        Parler à un expert
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BREADCRUMBS -->
+    <div class="bg-white border-b border-gray-100">
+        <div class="container mx-auto px-4 py-3 text-xs text-slate-500 flex items-center">
+            <a href="index.html" class="hover:text-orange-500">Accueil</a> 
+            <i data-lucide="chevron-right" width="12" class="mx-1"></i>
+            <a href="index.html#solutions" class="hover:text-orange-500">Produits</a> 
+            <i data-lucide="chevron-right" width="12" class="mx-1"></i>
+            <span class="text-slate-800 font-medium">Packaging</span>
+        </div>
+    </div>
+
+    <!-- CATALOGUE SECTION -->
+    <section id="produits" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-4xl font-bold text-slate-900 mb-3">Notre Gamme Packaging</h2>
+                    <p class="text-slate-600 text-lg">Des solutions techniques et esthétiques pour chaque besoin</p>
+                </div>
+                <!-- Sorting -->
+                <div class="mt-4 md:mt-0 relative min-w-[200px]">
+                    <select class="appearance-none bg-white border border-gray-300 text-slate-700 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-3 pr-8 shadow-sm cursor-pointer">
+                        <option>Tri par défaut</option>
+                        <option>Popularité</option>
+                        <option>Nouveauté</option>
+                    </select>
+                    <i data-lucide="chevron-down" class="absolute right-3 top-3.5 text-gray-500 w-4 h-4 pointer-events-none"></i>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Produit 1: Congélation -->
+                <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full transform hover:-translate-y-1">
+                    <div class="relative h-64 overflow-hidden bg-gray-100">
+                        <img 
+                            src="assets/dev-benjamin-pwr2uTPpz68-unsplash.jpg" 
+                            alt="Étiquette congélation" 
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                        />
+                        <div class="absolute top-4 right-4 bg-cyan-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                            -50°C
+                        </div>
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="bg-white text-slate-900 px-6 py-2 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition duration-300 shadow-lg">Aperçu</button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors font-serif">
+                            Étiquette congélation
+                        </h3>
+                        <p class="text-sm text-slate-500 mb-6 flex-grow leading-relaxed">
+                            Des étiquettes qui ne se décollent pas au congélateur, résistent à – 50 °C. Idéal pour produits surgelés.
+                        </p>
+                        <button class="w-full border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white font-bold py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2">
+                            Voir le produit
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produit 2: Contact Alimentaire -->
+                <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full transform hover:-translate-y-1">
+                    <div class="relative h-64 overflow-hidden bg-gray-100">
+                        <img 
+                            src="assets/code-on-stickers.jpg" 
+                            alt="Contact alimentaire" 
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                        />
+                        <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                            Sécurité
+                        </div>
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="bg-white text-slate-900 px-6 py-2 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition duration-300 shadow-lg">Aperçu</button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors font-serif">
+                            Contact alimentaire
+                        </h3>
+                        <p class="text-sm text-slate-500 mb-6 flex-grow leading-relaxed">
+                            Spécialement conçues pour une application directe sur les aliments secs ou humides (fruits, légumes) et films.
+                        </p>
+                        <button class="w-full border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white font-bold py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2">
+                            Voir le produit
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produit 3: Café Thé -->
+                <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full transform hover:-translate-y-1">
+                    <div class="relative h-64 overflow-hidden bg-gray-100">
+                        <img 
+                            src="assets/earlybird-coffee-cFEyZYy1X9g-unsplash.jpg" 
+                            alt="Café et Thé" 
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                        />
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="bg-white text-slate-900 px-6 py-2 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition duration-300 shadow-lg">Aperçu</button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors font-serif">
+                            Étiquette Café / Thé
+                        </h3>
+                        <p class="text-sm text-slate-500 mb-6 flex-grow leading-relaxed">
+                            Étiquettes personnalisées adaptées pour l’étiquetage du café, du thé, des sachets kraft et boîtes.
+                        </p>
+                        <button class="w-full border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white font-bold py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2">
+                            Voir le produit
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produit 4: Recto Verso -->
+                <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full transform hover:-translate-y-1">
+                    <div class="relative h-64 overflow-hidden bg-gray-100">
+                        <img 
+                            src="assets/123-Serialetic-Etiquettes-recto-verso.jpeg" 
+                            alt="Recto Verso" 
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                        />
+                        <div class="absolute top-4 right-4 bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                            Innovant
+                        </div>
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="bg-white text-slate-900 px-6 py-2 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition duration-300 shadow-lg">Aperçu</button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors font-serif">
+                            Étiquette Recto-Verso
+                        </h3>
+                        <p class="text-sm text-slate-500 mb-6 flex-grow leading-relaxed">
+                            Économisez en imprimant sur une seule étiquette (visible des deux côtés sur support transparent).
+                        </p>
+                        <button class="w-full border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white font-bold py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2">
+                            Voir le produit
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produit 5: Livret -->
+                <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full transform hover:-translate-y-1">
+                    <div class="relative h-64 overflow-hidden bg-gray-100">
+                        <img 
+                            src="assets/Article-blog-respire-1080x675.png" 
+                            alt="Livret" 
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                        />
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="bg-white text-slate-900 px-6 py-2 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition duration-300 shadow-lg">Aperçu</button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors font-serif">
+                            Étiquette Livret
+                        </h3>
+                        <p class="text-sm text-slate-500 mb-6 flex-grow leading-relaxed">
+                            Multi-informatives : diffusez une multitude d’informations en compilant plusieurs pages sur une même étiquette.
+                        </p>
+                        <button class="w-full border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white font-bold py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2">
+                            Voir le produit
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produit 6: Produit Luxe -->
+                <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full transform hover:-translate-y-1">
+                    <div class="relative h-64 overflow-hidden bg-gray-100">
+                        <img 
+                            src="https://images.unsplash.com/photo-1616606103915-dea7be788566?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                            alt="Produit Luxe" 
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                        />
+                        <div class="absolute top-4 right-4 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                            Premium
+                        </div>
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="bg-white text-slate-900 px-6 py-2 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition duration-300 shadow-lg">Aperçu</button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors font-serif">
+                            Étiquette Produit
+                        </h3>
+                        <p class="text-sm text-slate-500 mb-6 flex-grow leading-relaxed">
+                            Étiquette imprimée haut de gamme de packaging pour sublimer vos produits cosmétiques ou luxe.
+                        </p>
+                        <button class="w-full border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white font-bold py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2">
+                            Voir le produit
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produit 7: Fluo -->
+                <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full transform hover:-translate-y-1">
+                    <div class="relative h-64 overflow-hidden bg-gray-100">
+                        <img 
+                            src="assets/Ruban-gaffeur-UV-fluo.jpeg" 
+                            alt="Fluo" 
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                        />
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="bg-white text-slate-900 px-6 py-2 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition duration-300 shadow-lg">Aperçu</button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors font-serif">
+                            Étiquettes papier Fluo
+                        </h3>
+                        <p class="text-sm text-slate-500 mb-6 flex-grow leading-relaxed">
+                            Étiquettes code-barre Fluo à imprimer pour une visibilité maximale. Idéal promotion et soldes.
+                        </p>
+                        <button class="w-full border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white font-bold py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2">
+                            Voir le produit
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA STRIP -->
+    <section class="bg-indigo-600 py-16">
+        <div class="container mx-auto px-4">
+            <div class="relative overflow-hidden bg-indigo-700 rounded-3xl p-10 md:p-16 shadow-2xl">
+                <div class="absolute -top-32 -left-32 w-80 h-80 bg-indigo-500 rounded-full opacity-30"></div>
+                <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-purple-600 rounded-full opacity-30"></div>
+
+                <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+                    <div class="text-white text-center lg:text-left">
+                        <h3 class="text-3xl md:text-4xl font-bold mb-4 font-serif">Un projet sur-mesure ?</h3>
+                        <p class="text-indigo-100 text-lg max-w-xl mx-auto lg:mx-0">
+                            Nous collaborons avec de grandes enseignes (Parrot, Thalès, Sanofi...) pour créer des étiquettes uniques. Demandez votre devis gratuit.
+                        </p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
+                        <a href="mailto:contact@printeknologies.com" class="bg-white text-indigo-700 hover:bg-gray-100 px-8 py-4 rounded-xl font-bold text-lg shadow-xl transition transform hover:scale-105 flex items-center justify-center gap-2">
+                            <i data-lucide="file-text" width="20"></i> Demander un devis
+                        </a>
+                        <a href="tel:0557990178" class="bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-4 rounded-xl font-bold text-lg transition flex items-center justify-center gap-2">
+                            <i data-lucide="phone" width="20"></i> Appeler
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO & CONTENT SECTION -->
+    <section class="py-24 bg-white overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                
+                <div class="lg:w-1/2 order-2 lg:order-1">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-orange-50 text-orange-700 rounded-full mb-6 text-sm font-semibold">
+                        <i data-lucide="zap" width="16" class="text-orange-600"></i> Impact Visuel
+                    </div>
+                    <h2 class="text-4xl lg:text-5xl font-serif font-bold text-slate-900 mb-8 leading-tight">
+                        Le merchandising : Clé de votre succès
+                    </h2>
+                    <div class="prose prose-lg text-slate-600 space-y-6">
+                        <p>
+                            Dans un monde où le marketing est roi, l’étiquette packaging est indissociable du produit. La grande distribution impose des codes stricts : vos produits doivent se démarquer par une étiquette innovante, créative et colorée pour que le "produit se vende tout seul".
+                        </p>
+                        <p>
+                            <strong>Véhiculer votre message :</strong> Au-delà de l'information légale, l'étiquette transmet vos valeurs (publicité, appartenance). Nos experts vous proposent les meilleures combinaisons de matières, textures, graphismes et effets holographiques.
+                        </p>
+                        
+                        <div class="mt-8 mb-6 bg-gray-50 p-6 rounded-xl border border-gray-100">
+                            <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+                                <i data-lucide="layers" class="text-indigo-500"></i> Nos innovations techniques
+                            </h3>
+                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="text-green-500 w-4"></i> Étiquettes Braille / Tactiles</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="text-green-500 w-4"></i> Livrets Multipages</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="text-green-500 w-4"></i> Dorures & Vernis sélectifs</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="text-green-500 w-4"></i> Encres sécuritaires</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-10">
+                        <a href="#contact" class="inline-flex items-center text-orange-600 font-bold hover:text-orange-800 text-lg group">
+                            Confiez-nous vos projets
+                            <i data-lucide="arrow-right" class="ml-2 transform group-hover:translate-x-1 transition"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2 relative order-1 lg:order-2">
+                    <!-- Decorative Elements -->
+                    <div class="absolute -top-10 -right-10 w-64 h-64 bg-indigo-100 rounded-full mix-blend-multiply filter blur-3xl opacity-60"></div>
+                    <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-orange-100 rounded-full mix-blend-multiply filter blur-3xl opacity-60"></div>
+                    
+                    <div class="relative grid grid-cols-2 gap-4">
+                        <img 
+                            src="assets/trinh-minh-th-h4cM5JQmxoQ-unsplash (1).jpg" 
+                            alt="Cosmétique Packaging" 
+                            class="rounded-2xl shadow-xl w-full object-cover h-64 transform translate-y-8"
+                        />
+                        <img 
+                            src="https://images.unsplash.com/photo-1628102491629-778571d893a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                            alt="Food Packaging" 
+                            class="rounded-2xl shadow-xl w-full object-cover h-64"
+                        />
+                        <div class="col-span-2 bg-slate-900 text-white p-6 rounded-2xl shadow-xl mt-4">
+                            <div class="flex items-center gap-4 mb-2">
+                                <div class="bg-orange-500 p-2 rounded-lg"><i data-lucide="star" class="w-6 h-6"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Ils nous font confiance</h4>
+                                    <p class="text-slate-400 text-sm">Parrot, Thalès, Sanofi Aventis, Institut Arnaud...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST SIGNALS -->
+    <section class="bg-slate-900 text-white py-20 border-t border-slate-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4 font-serif">Pourquoi Printeknologies ?</h2>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <!-- Feature 1 -->
+                <div class="group p-8 bg-slate-800 rounded-2xl hover:bg-slate-700 transition duration-300 border border-slate-700 hover:border-indigo-500/50">
+                    <div class="w-20 h-20 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white shadow-lg shadow-indigo-500/30 transform group-hover:scale-110 transition duration-300">
+                        <i data-lucide="user-check" width="36" height="36"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Conseil personnalisé</h3>
+                    <p class="text-slate-400 mb-6">Nos experts prennent en charge votre projet de A à Z, en respectant vos contraintes techniques.</p>
+                    <a href="#" class="inline-block text-indigo-400 text-sm font-bold uppercase tracking-wide hover:text-white transition group-hover:translate-x-1">
+                        En savoir plus &rarr;
+                    </a>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="group p-8 bg-slate-800 rounded-2xl hover:bg-slate-700 transition duration-300 border border-slate-700 hover:border-blue-500/50">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white shadow-lg shadow-blue-600/30 transform group-hover:scale-110 transition duration-300">
+                        <i data-lucide="settings" width="36" height="36"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Service Après-Vente</h3>
+                    <p class="text-slate-400 mb-6">Des techniciens disponibles pour toute question sur le matériel ou la qualité d'impression.</p>
+                    <a href="#" class="inline-block text-blue-400 text-sm font-bold uppercase tracking-wide hover:text-white transition group-hover:translate-x-1">
+                        Contacter le SAV &rarr;
+                    </a>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="group p-8 bg-slate-800 rounded-2xl hover:bg-slate-700 transition duration-300 border border-slate-700 hover:border-green-500/50">
+                    <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white shadow-lg shadow-green-600/30 transform group-hover:scale-110 transition duration-300">
+                        <i data-lucide="thumbs-up" width="36" height="36"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Accompagnement</h3>
+                    <p class="text-slate-400 mb-6">Parce que votre satisfaction est notre principale préoccupation, nous suivons chaque dossier.</p>
+                    <a href="#" class="inline-block text-green-400 text-sm font-bold uppercase tracking-wide hover:text-white transition group-hover:translate-x-1">
+                        Nos engagements &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-500 py-16 text-sm border-t border-slate-900">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <div>
+                <h4 class="text-white font-bold mb-6 uppercase tracking-wider">Printeknologies</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="hover:text-orange-500 transition">Qui Sommes Nous</a></li>
+                    <li><a href="#" class="hover:text-orange-500 transition">Nos Guides</a></li>
+                    <li><a href="#" class="hover:text-orange-500 transition">Mentions légales</a></li>
+                    <li><a href="#" class="hover:text-orange-500 transition">CGV</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-6 uppercase tracking-wider">Service Client</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="hover:text-orange-500 transition">Contact / Devis</a></li>
+                    <li><a href="#" class="hover:text-orange-500 transition">Garanties</a></li>
+                    <li><a href="#" class="hover:text-orange-500 transition">SAV</a></li>
+                    <li><a href="#" class="hover:text-orange-500 transition">Livraison</a></li>
+                </ul>
+            </div>
+            <div class="md:col-span-2">
+                <h4 class="text-white font-bold mb-6 uppercase tracking-wider">Newsletter</h4>
+                <p class="mb-4 text-slate-400">Recevez nos dernières actualités, conseils d'experts et offres exclusives.</p>
+                <form class="flex flex-col sm:flex-row gap-3">
+                    <input type="email" placeholder="Votre email professionnel" class="bg-slate-900 border border-slate-800 text-white px-5 py-3 rounded-lg flex-grow focus:outline-none focus:border-orange-500 transition" />
+                    <button class="bg-orange-500 text-white px-8 py-3 rounded-lg font-bold hover:bg-orange-600 transition shadow-lg shadow-orange-500/20">S'inscrire</button>
+                </form>
+                <div class="mt-6 flex space-x-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-orange-500 hover:text-white transition"><i data-lucide="linkedin" width="18"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-orange-500 hover:text-white transition"><i data-lucide="facebook" width="18"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-orange-500 hover:text-white transition"><i data-lucide="twitter" width="18"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 text-center pt-8 border-t border-slate-900">
+            <p>© Printeknologies 2025 - Tous droits réservés - <span class="text-slate-600">Conçu pour l'excellence.</span></p>
+        </div>
+    </footer>
+
+    <!-- Script pour les icônes Lucide -->
+    <script>
+        lucide.createIcons();
+        
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
