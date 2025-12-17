@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Étiquette Destructible - Printeknologies</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Police Inter & Playfair -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        /* Custom scrollbar for gallery if needed */
+        .hide-scroll::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        orange: {
+                            500: '#f97316',
+                            600: '#ea580c',
+                        },
+                        slate: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                        },
+                        indigo: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-slate-800 smooth-scroll">
+
+    <!-- TOP BAR -->
+    <div class="bg-slate-900 text-slate-300 text-xs py-2 px-4 hidden md:block">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex space-x-6">
+                <span class="flex items-center gap-2 hover:text-white transition cursor-pointer">
+                    <i data-lucide="phone" width="14" height="14"></i> 05 57 99 01 78
+                </span>
+                <span class="flex items-center gap-2 hover:text-white transition cursor-pointer">
+                    <i data-lucide="mail" width="14" height="14"></i> contact@printeknologies.com
+                </span>
+            </div>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:text-white transition">Mentions légales</a>
+                <a href="#" class="hover:text-white transition">CGV</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-4">
+                    <button class="md:hidden p-2" onclick="toggleMenu()">
+                        <i data-lucide="menu" class="text-slate-800"></i>
+                    </button>
+                    <a href="index.html" class="no-underline">
+                        <img src="assets/logo-printeknologies.png" alt="Printeknologies Logo" class="h-10 w-auto">
+                    </a>
+                </div>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex space-x-8 font-medium text-sm text-slate-600">
+                    <a href="index.html" class="hover:text-orange-500 transition">Accueil</a>
+                    
+                    <!-- Dropdown Etiquettes -->
+                    <div class="relative group">
+                        <button class="text-orange-500 font-bold transition flex items-center gap-1">
+                            Étiquettes <i data-lucide="chevron-down" width="14"></i>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+                            <a href="etiquettes-vins.html" class="block px-4 py-3 hover:bg-gray-50 text-slate-700 hover:text-orange-500 transition border-b border-gray-50">
+                                <span class="font-semibold block">Vins & Spiritueux</span>
+                                <span class="text-xs text-orange-400">Prestige & Tradition</span>
+                            </a>
+                            <a href="etiquettes-packaging.html" class="block px-4 py-3 hover:bg-gray-50 text-slate-700 hover:text-orange-500 transition border-b border-gray-50">
+                                <span class="font-semibold block">Packaging & Produit</span>
+                                <span class="text-xs text-orange-400">Marketing & Merchandising</span>
+                            </a>
+                            <a href="etiquettes-pharma.html" class="block px-4 py-3 hover:bg-gray-50 text-slate-700 hover:text-orange-500 transition border-b border-gray-50">
+                                <span class="font-semibold block">Pharma & Médical</span>
+                                <span class="text-xs text-orange-400">Normes & Sécurité</span>
+                            </a>
+                            <a href="etiquettes-technique.html" class="block px-4 py-3 hover:bg-gray-50 text-slate-700 hover:text-orange-500 transition border-b border-gray-50">
+                                <span class="font-semibold block">Technique & Industriel</span>
+                                <span class="text-xs text-orange-400">Résistance Extrême</span>
+                            </a>
+                            <a href="etiquettes-securite.html" class="block px-4 py-3 hover:bg-gray-50 text-slate-700 hover:text-orange-500 transition border-b border-gray-50 bg-gray-50 font-bold text-orange-500">
+                                <span class="font-semibold block">Sécurité & Antivol</span>
+                                <span class="text-xs text-orange-400">VOID, RFID, Hologramme</span>
+                            </a>
+                            <a href="etiquettes-ecologiques.html" class="block px-4 py-3 hover:bg-gray-50 text-slate-700 hover:text-orange-500 transition">
+                                <span class="font-semibold block">Écologiques</span>
+                                <span class="text-xs text-orange-400">Biodégradable & Durable</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="materiel-consommables.html" class="hover:text-orange-500 transition">Matériel</a>
+                    <a href="nos-marques.html" class="hover:text-orange-500 transition">Nos Marques</a>
+                    <a href="conseils-pro.html" class="hover:text-orange-500 transition">Conseils du Pro</a>
+                </nav>
+
+                <!-- Actions -->
+                <div class="flex items-center space-x-4">
+                    <div class="hidden md:flex relative group">
+                        <input 
+                            type="text" 
+                            placeholder="Rechercher..." 
+                            class="bg-gray-100 rounded-full py-2 px-4 pl-10 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 w-48 transition-all duration-300 focus:w-64"
+                        />
+                        <i data-lucide="search" class="absolute left-3 top-2.5 text-gray-400 w-4 h-4"></i>
+                    </div>
+                    <a href="#" class="text-slate-600 hover:text-orange-500 transition">
+                        <i data-lucide="user" width="24" height="24"></i>
+                    </a>
+                    <a href="#" class="relative text-slate-600 hover:text-orange-500 transition">
+                        <i data-lucide="shopping-cart" width="24" height="24"></i>
+                        <span class="absolute -top-1 -right-1 bg-orange-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">0</span>
+                    </a>
+                    <a href="devis.html" class="hidden lg:inline-flex items-center bg-orange-500 hover:bg-orange-600 text-white px-5 py-2.5 rounded-md font-semibold text-sm transition shadow-lg shadow-orange-500/30 transform hover:-translate-y-0.5">
+                        Demander un devis
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t p-4 space-y-4 shadow-lg absolute w-full left-0 z-40">
+            <a href="index.html" class="block text-slate-700 font-medium py-2">Accueil</a>
+            <div class="py-2">
+                <span class="block text-orange-600 font-bold mb-2 px-3">Étiquettes</span>
+                <div class="pl-6 space-y-2 border-l-2 border-gray-100 ml-3">
+                    <a href="etiquettes-vins.html" class="block text-sm text-gray-600">Vins & Spiritueux</a>
+                    <a href="etiquettes-packaging.html" class="block text-sm text-gray-600">Packaging</a>
+                    <a href="etiquettes-pharma.html" class="block text-sm text-gray-600">Pharma</a>
+                    <a href="etiquettes-technique.html" class="block text-sm text-gray-600">Industrie</a>
+                    <a href="etiquettes-securite.html" class="block text-sm text-orange-600 font-semibold bg-orange-50 p-1 rounded">Sécurité</a>
+                    <a href="etiquettes-ecologiques.html" class="block text-sm text-gray-600">Écologique</a>
+                </div>
+            </div>
+            <a href="materiel-consommables.html" class="block text-slate-700 font-medium py-2 px-3">Matériel</a>
+            <a href="nos-marques.html" class="block text-slate-700 font-medium py-2 px-3">Marques</a>
+            <a href="conseils-pro.html" class="block text-slate-700 font-medium py-2 px-3">Conseils</a>
+            <a href="devis.html" class="block text-slate-700 font-medium py-2 px-3">Contact</a>
+        </div>
+    </header>
+
+    <!-- BREADCRUMBS -->
+    <div class="bg-white border-b border-gray-100">
+        <div class="container mx-auto px-4 py-3 text-xs text-slate-500 flex items-center">
+            <a href="index.html" class="hover:text-orange-500">Accueil</a> 
+            <i data-lucide="chevron-right" width="12" class="mx-1"></i>
+            <a href="etiquettes-securite.html" class="hover:text-orange-500">Étiquettes Sécurité</a> 
+            <i data-lucide="chevron-right" width="12" class="mx-1"></i>
+            <span class="text-slate-800 font-medium">Étiquette Destructible</span>
+        </div>
+    </div>
+
+    <!-- PRODUCT MAIN SECTION -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-12">
+                
+                <!-- Gallery Column -->
+                <div class="lg:w-1/2">
+                    <div class="mb-4 bg-gray-100 rounded-2xl overflow-hidden h-[400px] flex items-center justify-center relative group shadow-sm border border-gray-100">
+                        <img id="main-image" src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Étiquette Destructible" class="w-full h-full object-contain p-4">
+                        <div class="absolute top-4 left-4 bg-orange-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md flex items-center gap-1">
+                            <i data-lucide="alert-triangle" width="12"></i> Ultra-Friable
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-4 gap-4">
+                        <button onclick="changeImage(this.src)" class="bg-gray-100 rounded-lg overflow-hidden h-24 border-2 border-transparent hover:border-orange-500 transition focus:outline-none focus:border-orange-500">
+                            <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover" alt="Vue 1">
+                        </button>
+                        <button onclick="changeImage(this.src)" class="bg-gray-100 rounded-lg overflow-hidden h-24 border-2 border-transparent hover:border-orange-500 transition focus:outline-none focus:border-orange-500">
+                            <img src="https://images.unsplash.com/photo-1618331835717-801e976710b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover" alt="Vue 2">
+                        </button>
+                        <button onclick="changeImage(this.src)" class="bg-gray-100 rounded-lg overflow-hidden h-24 border-2 border-transparent hover:border-orange-500 transition focus:outline-none focus:border-orange-500">
+                            <img src="https://images.unsplash.com/photo-1622675363311-ac22f5a975bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover" alt="Vue 3">
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Info Column -->
+                <div class="lg:w-1/2 flex flex-col">
+                    <h1 class="text-3xl lg:text-4xl font-serif font-bold text-slate-900 mb-2">Étiquettes Destructibles </h1>
+                    <div class="flex items-center gap-2 mb-4 text-sm">
+                        <div class="flex text-yellow-400">
+                            <i data-lucide="star" class="fill-current w-4 h-4"></i>
+                            <i data-lucide="star" class="fill-current w-4 h-4"></i>
+                            <i data-lucide="star" class="fill-current w-4 h-4"></i>
+                            <i data-lucide="star" class="fill-current w-4 h-4"></i>
+                            <i data-lucide="star" class="fill-current w-4 h-4"></i>
+                        </div>
+                        <span class="text-slate-500">(Avis Clients)</span>
+                        <span class="mx-2 text-gray-300">|</span>
+                        <span class="text-indigo-600 font-semibold">Réf. DESTRUCT-SECURE-01</span>
+                    </div>
+
+                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                        Cette étiquette haute sécurité est impossible à décoller d'un seul tenant. Fabriquée dans un matériau ultra-friable (vinyle ou acrylate), elle se brise en une multitude de petits fragments ("coquille d'œuf") à la moindre tentative d'arrachage.
+                    </p>
+
+                    <!-- Features -->
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-start gap-3">
+                            <div class="p-2 bg-orange-100 rounded-lg text-orange-600">
+                                <i data-lucide="shield-off" width="20"></i>
+                            </div>
+                            <div>
+                                <span class="block text-sm font-bold text-slate-900">Anti-Transfert</span>
+                                <span class="text-xs text-slate-500">Ne peut être recollée</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="p-2 bg-slate-100 rounded-lg text-slate-600">
+                                <i data-lucide="grid" width="20"></i>
+                            </div>
+                            <div>
+                                <span class="block text-sm font-bold text-slate-900">Friabilité</span>
+                                <span class="text-xs text-slate-500">Fragmentation immédiate</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="p-2 bg-blue-100 rounded-lg text-blue-600">
+                                <i data-lucide="lock" width="20"></i>
+                            </div>
+                            <div>
+                                <span class="block text-sm font-bold text-slate-900">Adhésif Fort</span>
+                                <span class="text-xs text-slate-500">Prise rapide (24h max)</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="p-2 bg-indigo-100 rounded-lg text-indigo-600">
+                                <i data-lucide="printer" width="20"></i>
+                            </div>
+                            <div>
+                                <span class="block text-sm font-bold text-slate-900">Imprimable</span>
+                                <span class="text-xs text-slate-500">Transfert Thermique</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Actions -->
+                    <div class="mt-auto space-y-4">
+                        <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
+                            <span class="block text-sm font-bold text-slate-700 mb-2">Besoin d'un tarif personnalisé ?</span>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <a href="devis.html" class="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg text-center transition shadow-lg shadow-orange-500/30 flex items-center justify-center gap-2">
+                                    <i data-lucide="file-text" width="18"></i> Demander un devis
+                                </a>
+                                <a href="devis.html" class="flex-1 border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white font-bold py-3 px-6 rounded-lg text-center transition flex items-center justify-center gap-2">
+                                    <i data-lucide="box" width="18"></i> Commander un échantillon
+                                </a>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-400 text-center flex items-center justify-center gap-1">
+                            <i data-lucide="shield-check" width="12"></i> Devis gratuit sous 24h sans engagement.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TABS SECTION -->
+    <section class="py-12 bg-gray-50 border-t border-gray-200">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <!-- Tab Headers -->
+                <div class="flex border-b border-gray-200 mb-8 overflow-x-auto" id="tabs">
+                    <button class="px-6 py-4 text-orange-500 border-b-2 border-orange-500 font-bold text-sm uppercase tracking-wide whitespace-nowrap focus:outline-none" onclick="openTab(event, 'description')">Description</button>
+                    <button class="px-6 py-4 text-slate-500 hover:text-slate-800 font-bold text-sm uppercase tracking-wide whitespace-nowrap focus:outline-none transition" onclick="openTab(event, 'tech')">Caractéristiques Techniques</button>
+                    <button class="px-6 py-4 text-slate-500 hover:text-slate-800 font-bold text-sm uppercase tracking-wide whitespace-nowrap focus:outline-none transition" onclick="openTab(event, 'conseils')">Cas d'Usage</button>
+                </div>
+
+                <!-- Tab Content: Description -->
+                <div id="description" class="tab-content prose prose-slate max-w-none text-slate-600 leading-relaxed">
+                    <p>
+                        L'étiquette destructible est la solution ultime contre le vol et la fraude. Contrairement à l'étiquette VOID qui laisse un message, l'étiquette destructible se désagrège physiquement. Elle ne peut donc pas être retirée d'un produit pour être collée sur un autre (transfert de garantie, changement de prix).
+                    </p>
+                    <p>
+                        Elle est constituée d'un film vinyle ou acrylate extrêmement fin et fragile, associé à un adhésif acrylique très puissant. Une fois polymérisé (24h à 48h), l'adhésif devient plus fort que le matériau lui-même, provoquant la rupture de l'étiquette à la moindre sollicitation mécanique.
+                    </p>
+                    <h3 class="text-slate-900 font-bold mt-6 mb-4">Points forts :</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Dissuasion :</strong> Le vol ou l'échange d'étiquette devient impossible sans laisser de traces évidentes.</li>
+                        <li><strong>Polyvalence :</strong> Adhère sur la plupart des surfaces lisses (métal, plastique, verre).</li>
+                        <li><strong>Personnalisation :</strong> Impression de codes-barres, numéros de série et logos pour un inventaire sécurisé.</li>
+                    </ul>
+                </div>
+
+                <!-- Tab Content: Caractéristiques Techniques -->
+                <div id="tech" class="tab-content hidden prose prose-slate max-w-none text-slate-600 leading-relaxed">
+                    <h3 class="text-slate-900 font-bold mb-4">Spécifications Techniques</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Caractéristique</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Détails</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium text-slate-900">Matière</td>
+                                    <td class="px-6 py-4 text-slate-600">Vinyle Destructible ou Acrylate (Coquille d'oeuf)</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium text-slate-900">Adhésif</td>
+                                    <td class="px-6 py-4 text-slate-600">Acrylique Permanent Haute Adhésion</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium text-slate-900">Épaisseur</td>
+                                    <td class="px-6 py-4 text-slate-600">Très fine (approx. 50-60 microns)</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium text-slate-900">Résistance</td>
+                                    <td class="px-6 py-4 text-slate-600">-40°C à +80°C, UV (modéré), Humidité</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium text-slate-900">Impression</td>
+                                    <td class="px-6 py-4 text-slate-600">Transfert Thermique (Ruban Résine)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tab Content: Cas d'Usage -->
+                <div id="conseils" class="tab-content hidden prose prose-slate max-w-none text-slate-600 leading-relaxed">
+                    <h3 class="text-slate-900 font-bold mb-4">Applications Sécuritaires</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mt-6">
+                        <div class="bg-white p-6 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2"><i data-lucide="shield-check" width="18" class="text-orange-500"></i> Garantie & SAV</h4>
+                            <p class="text-sm text-slate-600">Scellé de vis sur appareils électroniques. Si l'étiquette est brisée, la garantie est annulée.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2"><i data-lucide="tag" width="18" class="text-blue-500"></i> Asset Management</h4>
+                            <p class="text-sm text-slate-600">Identification de parc informatique et mobilier de bureau. Empêche le changement d'étiquette d'inventaire.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 md:col-span-2">
+                            <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2"><i data-lucide="lock" width="18" class="text-green-500"></i> Authentification</h4>
+                            <p class="text-sm text-slate-600">Protection de documents officiels, scellés de compteurs, badges de sécurité.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 p-4 bg-orange-50 text-orange-800 rounded-lg text-sm border border-orange-100">
+                        <strong>Recommandation :</strong> Attendre 24h après la pose avant de tester la résistance à l'arrachage pour permettre à l'adhésif de polymériser complètement.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- RELATED PRODUCTS -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl lg:text-3xl font-serif font-bold text-slate-900 mb-2">Produits Associés</h2>
+                <div class="w-16 h-1 bg-orange-500 mx-auto rounded"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Product 1 -->
+                <a href="produit-etiquettes-void.html" class="group bg-white rounded-xl border border-gray-100 hover:shadow-xl transition duration-300 block overflow-hidden">
+                    <div class="relative h-48 overflow-hidden bg-gray-50">
+                        <img src="https://images.unsplash.com/photo-1618331835717-801e976710b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="VOID" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-slate-900 mb-1 group-hover:text-orange-600 transition">Étiquette VOID</h3>
+                        <p class="text-xs text-slate-500">Message révélateur</p>
+                    </div>
+                </a>
+
+                <!-- Product 2 -->
+                <a href="produit-etiquettes-propriete.html" class="group bg-white rounded-xl border border-gray-100 hover:shadow-xl transition duration-300 block overflow-hidden">
+                    <div class="relative h-48 overflow-hidden bg-gray-50">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Propriété" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-slate-900 mb-1 group-hover:text-orange-600 transition">Étiquette de Propriété</h3>
+                        <p class="text-xs text-slate-500">Inventaire durable</p>
+                    </div>
+                </a>
+
+                <!-- Product 3 -->
+                <a href="produit-etiquette-stop-ouverture.html" class="group bg-white rounded-xl border border-gray-100 hover:shadow-xl transition duration-300 block overflow-hidden">
+                    <div class="relative h-48 overflow-hidden bg-gray-50">
+                        <img src="https://images.unsplash.com/photo-1622675363311-ac22f5a975bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="STOP Ouverture" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-slate-900 mb-1 group-hover:text-orange-600 transition">Étiquette STOP OUVERTURE</h3>
+                        <p class="text-xs text-slate-500">Témoin d'effraction</p>
+                    </div>
+                </a>
+
+                <!-- Product 4 -->
+                <a href="materiel-consommables.html" class="group bg-white rounded-xl border border-gray-100 hover:shadow-xl transition duration-300 block overflow-hidden">
+                    <div class="relative h-48 overflow-hidden bg-gray-50">
+                        <img src="https://images.unsplash.com/photo-1603201667141-5a2d4c6733ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Ruban Résine" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-slate-900 mb-1 group-hover:text-orange-600 transition">Ruban Résine</h3>
+                        <p class="text-xs text-slate-500">Impression durable</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-500 py-16 text-sm border-t border-slate-900">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <div>
+                <h4 class="text-white font-bold mb-6 uppercase tracking-wider">Printeknologies</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="hover:text-orange-500 transition">Qui Sommes Nous</a></li>
+                    <li><a href="conseils-pro.html" class="hover:text-orange-500 transition">Nos Guides</a></li>
+                    <li><a href="#" class="hover:text-orange-500 transition">Mentions légales</a></li>
+                    <li><a href="#" class="hover:text-orange-500 transition">CGV</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-6 uppercase tracking-wider">Service Client</h4>
+                <ul class="space-y-3">
+                    <li><a href="devis.html" class="hover:text-orange-500 transition">Contact / Devis</a></li>
+                    <li><a href="#" class="hover:text-orange-500 transition">Garanties</a></li>
+                    <li><a href="#" class="hover:text-orange-500 transition">SAV</a></li>
+                    <li><a href="#" class="hover:text-orange-500 transition">Livraison</a></li>
+                </ul>
+            </div>
+            <div class="md:col-span-2">
+                <h4 class="text-white font-bold mb-6 uppercase tracking-wider">Newsletter</h4>
+                <p class="mb-4 text-slate-400">Recevez nos dernières actualités, conseils d'experts et offres exclusives.</p>
+                <form class="flex flex-col sm:flex-row gap-3">
+                    <input type="email" placeholder="Votre email professionnel" class="bg-slate-900 border border-slate-800 text-white px-5 py-3 rounded-lg flex-grow focus:outline-none focus:border-orange-500 transition" />
+                    <button class="bg-orange-500 text-white px-8 py-3 rounded-lg font-bold hover:bg-orange-600 transition shadow-lg shadow-orange-500/20">S'inscrire</button>
+                </form>
+                <div class="mt-6 flex space-x-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-orange-500 hover:text-white transition"><i data-lucide="linkedin" width="18"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-orange-500 hover:text-white transition"><i data-lucide="facebook" width="18"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-orange-500 hover:text-white transition"><i data-lucide="twitter" width="18"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 text-center pt-8 border-t border-slate-900">
+            <p>© Printeknologies 2025 - Tous droits réservés - <span class="text-slate-600">Conçu pour l'excellence.</span></p>
+        </div>
+    </footer>
+
+    <!-- Script pour les icônes Lucide et Galerie -->
+    <script>
+        lucide.createIcons();
+        
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function changeImage(src) {
+            const mainImage = document.getElementById('main-image');
+            // Change the source of the main image
+            let newSrc = src.replace('&w=200', '&w=1000'); 
+            mainImage.src = newSrc;
+        }
+
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.add("hidden");
+            }
+            tablinks = document.getElementById("tabs").getElementsByTagName("button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace("text-orange-500 border-b-2 border-orange-500", "text-slate-500 hover:text-slate-800");
+                tablinks[i].classList.add("text-slate-500");
+            }
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).classList.remove("hidden");
+            evt.currentTarget.className = evt.currentTarget.className.replace("text-slate-500 hover:text-slate-800", "text-orange-500 border-b-2 border-orange-500");
+            evt.currentTarget.classList.remove("text-slate-500");
+        }
+    </script>
+</body>
+</html>
